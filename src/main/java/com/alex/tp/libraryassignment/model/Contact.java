@@ -7,7 +7,7 @@ package com.alex.tp.libraryassignment.model;
  *
  * @author Alex
  */
-public class Contact {
+public final class Contact {
     
     private String id;
     private String email;

@@ -8,7 +8,7 @@ package com.alex.tp.libraryassignment.model;
  *
  * @author Alex
  */
-public class Publisher {
+public final class Publisher {
     private String id;
     private String publisherName;
     private String publisherAddress;

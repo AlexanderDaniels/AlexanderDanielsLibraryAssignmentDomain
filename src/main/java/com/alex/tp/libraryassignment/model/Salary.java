@@ -10,7 +10,7 @@ import java.math.BigDecimal;
  *
  * @author Alex
  */
-public class Salary {
+public final class Salary {
     private String id;
     private BigDecimal baseSalary;
 

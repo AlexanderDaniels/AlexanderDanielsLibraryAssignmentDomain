@@ -10,7 +10,7 @@ import java.util.List;
  *
  * @author Alex
  */
-public class LibraryMembers {
+public final class LibraryMembers {
     private String id;
     private String membershipNum;
     private List<Contact> contact;

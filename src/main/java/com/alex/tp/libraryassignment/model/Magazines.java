@@ -8,7 +8,7 @@ package com.alex.tp.libraryassignment.model;
  *
  * @author Alex
  */
-public class Magazines {
+public final class Magazines {
     private String id;
     private String magName;
     private int numOfPages;

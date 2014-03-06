@@ -8,7 +8,7 @@ package com.alex.tp.libraryassignment.model;
  *
  * @author Alex
  */
-public class LendBooks {
+public final class LendBooks {
     private String id;
     private String membershipNum;
     private String bookName;

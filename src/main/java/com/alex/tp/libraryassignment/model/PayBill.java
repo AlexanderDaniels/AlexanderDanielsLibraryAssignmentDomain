@@ -8,7 +8,7 @@ package com.alex.tp.libraryassignment.model;
  *
  * @author Alex
  */
-public class PayBill {
+public final class PayBill {
     private String id;
     private String billNo;
     private double amount;

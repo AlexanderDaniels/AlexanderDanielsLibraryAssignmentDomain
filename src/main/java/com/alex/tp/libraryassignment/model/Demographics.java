@@ -8,7 +8,7 @@ package com.alex.tp.libraryassignment.model;
  *
  * @author Alex
  */
-public class Demographics {
+public final class Demographics {
     private String id;
     private String gender;
     private String race;
@@ -29,45 +29,43 @@ public class Demographics {
 
     public String getRace() {
         return race;
-    }    
-
-    private static class DemographicsBuilder {
+    }
+    
+    public static class DemographicsBuilder{
         private String id;
         private String gender;
         private String race;
-    
+
         public DemographicsBuilder(String id) {
             this.id = id;
         }
 
-        public DemographicsBuilder gender() {
+        public DemographicsBuilder gender(String gender) {
             this.gender = gender;
             return this;
         }
 
-        public DemographicsBuilder race() {
+        public DemographicsBuilder race(String race) {
             this.race = race;
             return this;
         }
         
-        public DemographicsBuilder demographics(Demographics demo)
-        {
-            id = demo.getId();
-            gender = demo.getGender();
-            race = demo.getRace();
+        public DemographicsBuilder demographics(Demographics demographics){
+            id = demographics.getId();
+            gender = demographics.getGender();
+            race = demographics.getRace();
             
             return this;
         }
         
         public Demographics build(){
             return new Demographics(this);
-        }    
+        }        
     }
 
     @Override
     public int hashCode() {
         int hash = 5;
-        hash = 31 * hash + (this.id != null ? this.id.hashCode() : 0);
         return hash;
     }
 
@@ -80,6 +78,9 @@ public class Demographics {
             return false;
         }
         final Demographics other = (Demographics) obj;
+        if ((this.id == null) ? (other.id != null) : !this.id.equals(other.id)) {
+            return false;
+        }
         return true;
-    }        
+    }   
 }

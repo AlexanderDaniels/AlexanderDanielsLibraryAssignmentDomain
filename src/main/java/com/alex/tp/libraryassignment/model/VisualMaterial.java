@@ -8,7 +8,7 @@ package com.alex.tp.libraryassignment.model;
  *
  * @author Alex
  */
-public class VisualMaterial {
+public final class VisualMaterial {
     private String id;
     private String typeOfVisualMaterial;
     private String nameOfVisualMaterial;
