@@ -40,12 +40,12 @@ public final class VisualMaterial {
             this.id = id;
         }
 
-        public VisualMaterialBuilder getTypeOfVisualMaterial(String typeOfVisualMaterial) {
+        public VisualMaterialBuilder typeOfVisualMaterial(String typeOfVisualMaterial) {
             this.typeOfVisualMaterial = typeOfVisualMaterial;
             return this;
         }
 
-        public VisualMaterialBuilder getNameOfVisualMaterial(String nameOfVisualMaterial) {
+        public VisualMaterialBuilder nameOfVisualMaterial(String nameOfVisualMaterial) {
             this.nameOfVisualMaterial = nameOfVisualMaterial;
             return this;
         }

@@ -12,7 +12,7 @@ import java.math.BigDecimal;
  */
 public final class Salary {
     private String id;
-    private BigDecimal baseSalary;
+    private double baseSalary;
 
     public Salary(SalaryBuilder builder) {
         this.id = builder.id;
@@ -23,19 +23,19 @@ public final class Salary {
         return id;
     }
 
-    public BigDecimal getBaseSalary() {
+    public double getBaseSalary() {
         return baseSalary;
     }
     
     public static class SalaryBuilder{
         private String id;
-        private BigDecimal baseSalary;
+        private double baseSalary;
         
         public SalaryBuilder(String id) {
             this.id = id;
         }
 
-        public SalaryBuilder baseSalary(BigDecimal baseSalary) {
+        public SalaryBuilder baseSalary(double baseSalary) {
             this.baseSalary = baseSalary;
             return this;
         }
