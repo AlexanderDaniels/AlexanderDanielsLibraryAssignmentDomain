@@ -40,7 +40,7 @@ public final class Publisher {
             this.id = id;
         }
 
-        public PublisherBuilder pblisherName(String publisherName) {
+        public PublisherBuilder publisherName(String publisherName) {
             this.publisherName = publisherName;
             return this;
         }
