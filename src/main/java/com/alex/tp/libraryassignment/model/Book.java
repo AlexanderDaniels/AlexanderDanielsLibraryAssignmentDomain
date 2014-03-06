@@ -41,10 +41,12 @@ public class Book {
         }
 
         public BookBuilder bookName(String bookName) {
+            this.bookName = bookName;
             return this;
         }
 
         public BookBuilder isbnNum(String isbnNum) {
+            this.isbnNum = isbnNum;
             return this;
         }
         
@@ -58,10 +60,7 @@ public class Book {
         
         public Book build(){
             return new Book(this);
-        }
-        
-        
-        
+        }       
     }
 
     @Override

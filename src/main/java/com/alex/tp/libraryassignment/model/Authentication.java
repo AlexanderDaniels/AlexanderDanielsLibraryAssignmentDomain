@@ -9,68 +9,65 @@ package com.alex.tp.libraryassignment.model;
  * @author Alex
  */
 public final class Authentication {
+    
     private String id;
+    private String username;
     private String password;
-    private String userName;
 
     public Authentication(AuthenticationBuilder builder) {
         this.id = builder.id;
+        this.username = builder.username;
         this.password = builder.password;
-        this.userName = builder.userName;
     }
 
     public String getId() {
         return id;
     }
 
+    public String getUsername() {
+        return username;
+    }
+
     public String getPassword() {
         return password;
     }
-
-    public String getUserName() {
-        return userName;
-    }
     
-    private static class AuthenticationBuilder {
+    public static class AuthenticationBuilder{
         private String id;
+        private String username;
         private String password;
-        private String userName;
-        
+
         public AuthenticationBuilder(String id) {
             this.id = id;
+        }
+
+        public AuthenticationBuilder username(String username) {
+            this.username = username;
+            return this;
         }
 
         public AuthenticationBuilder password(String password) {
             this.password = password;
             return this;
         }
-
-        public AuthenticationBuilder userName(String userName) {
-            this.userName = userName;
-            return this;
-        }
         
         public AuthenticationBuilder authentication(Authentication authentication){
-            this.id = authentication.getId();
-            this.password = authentication.getPassword();
-            this.userName = authentication.getUserName();
+            id = authentication.getId();
+            password = authentication.getPassword();
+            username = authentication.getUsername();
             return this;
-        }
+        } 
         
-        public Authentication build()
-        {
+        public Authentication build(){
             return new Authentication(this);
         }
         
-        
     }
-    
-    
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 89 * hash + (this.id != null ? this.id.hashCode() : 0);
+        int hash = 3;
+        hash = 83 * hash + (this.id != null ? this.id.hashCode() : 0);
         return hash;
     }
 
@@ -85,8 +82,6 @@ public final class Authentication {
         final Authentication other = (Authentication) obj;
         return true;
     }
-
-    
     
     
 }
