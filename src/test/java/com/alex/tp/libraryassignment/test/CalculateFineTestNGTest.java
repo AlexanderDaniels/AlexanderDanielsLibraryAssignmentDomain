@@ -4,7 +4,7 @@
  */
 package com.alex.tp.libraryassignment.test;
 
-import com.alex.tp.libraryassignment.model.LibraryMembers;
+import com.alex.tp.libraryassignment.model.CalculateFine;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
@@ -16,35 +16,38 @@ import org.testng.annotations.Test;
  *
  * @author Alex
  */
-public class LibraryMembersTestNGTest {
+public class CalculateFineTestNGTest {
     
-    public LibraryMembersTestNGTest() {
+    public CalculateFineTestNGTest() {
     }
     // TODO add test methods here.
     // The methods must be annotated with annotation @Test. For example:
     //
     @Test
-    public void createLibraryMembers() {
-        LibraryMembers l = new LibraryMembers.LibraryMembersBuilder("1")
-                .membershipNum("12345678Alex")
+    public void createCalculateFine() {
+        CalculateFine c = new CalculateFine.CalculateFineBuilder("1")
+                .amount(20.00)
+                .daysLate(4)
                 .build();
         
-        Assert.assertEquals(l.getMembershipNum(), "12345678Alex");
-    }
-
-    @Test
-    public void updateLibraryMembers() {
-        LibraryMembers l = new LibraryMembers.LibraryMembersBuilder("1")
-                .membershipNum("12345678Alex")
-                .build();
-        
-        LibraryMembers newL = new LibraryMembers.LibraryMembersBuilder("1").librarian(l)
-                .membershipNum("1234Alex")
-                .build();
-        
-        Assert.assertNotSame(l, newL);
+        Assert.assertEquals(c.getDaysLate(), 4);
     }
     
+    @Test
+    public void updateCalculateFine(){
+        CalculateFine c = new CalculateFine.CalculateFineBuilder("1")
+                .amount(20.00)
+                .daysLate(4)
+                .build();
+        
+        CalculateFine newC = new CalculateFine.CalculateFineBuilder("1").calculateFine(c)
+                .amount(10.00)
+                .daysLate(2)
+                .build();
+        
+        Assert.assertNotSame(c, newC);
+    }
+
     @BeforeClass
     public static void setUpClass() throws Exception {
     }

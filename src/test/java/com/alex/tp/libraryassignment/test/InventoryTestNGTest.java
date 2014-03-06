@@ -4,8 +4,9 @@
  */
 package com.alex.tp.libraryassignment.test;
 
-import com.alex.tp.libraryassignment.model.LibraryMembers;
+import com.alex.tp.libraryassignment.model.Inventory;
 import org.testng.Assert;
+import static org.testng.Assert.*;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
@@ -16,33 +17,36 @@ import org.testng.annotations.Test;
  *
  * @author Alex
  */
-public class LibraryMembersTestNGTest {
+public class InventoryTestNGTest {
     
-    public LibraryMembersTestNGTest() {
+    public InventoryTestNGTest() {
     }
     // TODO add test methods here.
     // The methods must be annotated with annotation @Test. For example:
     //
     @Test
-    public void createLibraryMembers() {
-        LibraryMembers l = new LibraryMembers.LibraryMembersBuilder("1")
-                .membershipNum("12345678Alex")
+    public void createInventory() {
+        Inventory i = new Inventory.InventoryBuilder("1")
+                .bookName("Harry Potter")
+                .numBook(10)
                 .build();
         
-        Assert.assertEquals(l.getMembershipNum(), "12345678Alex");
+        Assert.assertEquals(i.getNumBook(), 10);
+                
     }
 
     @Test
-    public void updateLibraryMembers() {
-        LibraryMembers l = new LibraryMembers.LibraryMembersBuilder("1")
-                .membershipNum("12345678Alex")
+    public void updateInventory() {
+        Inventory i = new Inventory.InventoryBuilder("1")
+                .bookName("Harry Potter")
+                .numBook(10)
                 .build();
         
-        LibraryMembers newL = new LibraryMembers.LibraryMembersBuilder("1").librarian(l)
-                .membershipNum("1234Alex")
+        Inventory newI = new Inventory.InventoryBuilder("1").inventory(i)
+                .numBook(20)
                 .build();
         
-        Assert.assertNotSame(l, newL);
+        Assert.assertNotSame(i, newI);
     }
     
     @BeforeClass
