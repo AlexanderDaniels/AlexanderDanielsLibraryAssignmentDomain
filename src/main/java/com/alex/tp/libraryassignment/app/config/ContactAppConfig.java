@@ -4,8 +4,8 @@
  */
 package com.alex.tp.libraryassignment.app.config;
 
-import com.alex.tp.libraryassignment.services.ContactService;
-import com.alex.tp.libraryassignment.services.Impl.ContactServiceImpl;
+import com.alex.tp.libraryassignment.services.ContactCrudservice;
+import com.alex.tp.libraryassignment.services.Impl.ContactCrudServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -18,7 +18,7 @@ import org.springframework.context.annotation.Configuration;
 public class ContactAppConfig {
     
     @Bean(name="contact")
-    public ContactService getService(){
-        return new ContactServiceImpl();
+    public ContactCrudservice getService(){
+        return new ContactCrudServiceImpl();
     }
 }
