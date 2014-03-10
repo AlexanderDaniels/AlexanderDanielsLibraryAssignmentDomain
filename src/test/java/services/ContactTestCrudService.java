@@ -40,38 +40,38 @@ public class ContactTestCrudService {
         Mockito.verify(crudService).persist(contact);
     }
 
-//    @Test
-//    public void testRead() throws Exception {
-//        Question q1 = new Question.Builder("What is Java").id("1").build();
-//        Question returnQuestion = crudService.find(q1.getId());
-//        when(crudService.find(q1.getId())).thenReturn(returnQuestion);
-//        Mockito.verify(crudService).find(q1.getId());
-//
-//    }
-//
-//    @Test
-//    public void testUpdate() throws Exception {
-//        // THIS IS THE WRONG WAY TO DO THIS
-//        // PLEASE FIX FIX FIX
-//        // LEFT OUT FOR YOU TO FIGURE IT OUT
-//
-//        Question q1 = new Question.Builder("What is Java").id("1").build();
-//
-//        Question returnQuestion = crudService.merge(q1);
-//        when(crudService.merge(q1)).thenReturn(returnQuestion);
-//        Mockito.verify(crudService).merge(q1);
-//
-//    }
-//
-//    @Test
-//    public void testDelete() throws Exception {
-//
-//        Question q1 = new Question.Builder("What is Java").id("1").build();
-//        Question returnQuestion = crudService.remove(q1);
-//        when(crudService.remove(q1)).thenReturn(returnQuestion);
-//        Mockito.verify(crudService).remove(q1);
-//
-//    }
+    @Test
+    public void testRead() throws Exception {
+        Contact contact = new Contact.ContactBuilder("1").email("apdaniels92@gmail.com").cellphone("0744402606").telephone("0219520501").build();
+        Contact returnContact = crudService.find(contact.getId());
+        when(crudService.find(contact.getId())).thenReturn(returnContact);
+        Mockito.verify(crudService).find(contact.getId());
+
+    }
+
+    @Test
+    public void testUpdate() throws Exception {
+        // THIS IS THE WRONG WAY TO DO THIS
+        // PLEASE FIX FIX FIX
+        // LEFT OUT FOR YOU TO FIGURE IT OUT
+
+        Contact contact = new Contact.ContactBuilder("1").email("apdaniels92@gmail.com").cellphone("0744402606").telephone("0219520501").build();
+        Contact newContact = new Contact.ContactBuilder("1").contact(contact).cellphone("0744402789").build();
+        newContact = crudService.merge(contact);
+        when(crudService.merge(contact)).thenReturn(newContact);
+        Mockito.verify(crudService).merge(contact);
+
+    }
+
+    @Test
+    public void testDelete() throws Exception {
+
+        Contact contact = new Contact.ContactBuilder("1").email("apdaniels92@gmail.com").cellphone("0744402606").telephone("0219520501").build();
+        Contact returnContact = crudService.remove(contact);
+        when(crudService.remove(contact)).thenReturn(returnContact);
+        Mockito.verify(crudService).remove(contact);
+
+    }
 //
 //    @AfterClass
 //    public void tearDownClass() throws Exception {
