@@ -4,8 +4,8 @@
  */
 package com.alex.tp.libraryassignment.app.config;
 
-import com.alex.tp.libraryassignment.services.ContactCrudservice;
-import com.alex.tp.libraryassignment.services.Impl.ContactCrudServiceImpl;
+import com.alex.tp.libraryassignment.services.crud.ContactCrudservice;
+import com.alex.tp.libraryassignment.services.crud.Impl.ContactCrudServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

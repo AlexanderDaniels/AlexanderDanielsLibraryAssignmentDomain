@@ -2,9 +2,9 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.alex.tp.libraryassignment.services.Impl;
+package com.alex.tp.libraryassignment.services.crud.Impl;
 import com.alex.tp.libraryassignment.model.Contact;
-import com.alex.tp.libraryassignment.services.ContactCrudservice;
+import com.alex.tp.libraryassignment.services.crud.ContactCrudservice;
 import java.util.List;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
