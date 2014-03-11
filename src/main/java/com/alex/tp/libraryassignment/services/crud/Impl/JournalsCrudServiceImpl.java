@@ -4,8 +4,8 @@
  */
 package com.alex.tp.libraryassignment.services.crud.Impl;
 
-import com.alex.tp.libraryassignment.model.Authentication;
-import com.alex.tp.libraryassignment.services.crud.AuthenticationCrudService;
+import com.alex.tp.libraryassignment.model.Journals;
+import com.alex.tp.libraryassignment.services.crud.JournalsCrudService;
 import java.util.List;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,35 +14,35 @@ import org.springframework.transaction.annotation.Transactional;
  *
  * @author Alex
  */
-public class AuthenticationCrudServiceImpl implements AuthenticationCrudService{
+public class JournalsCrudServiceImpl implements JournalsCrudService{
 
     @Override
     @Transactional(propagation = Propagation.SUPPORTS)
-    public Authentication find(String id) {
+    public Journals find(String id) {
         return null;
     }
 
     @Override
     @Transactional(propagation = Propagation.MANDATORY)
-    public Authentication persist(Authentication entity) {
+    public Journals persist(Journals entity) {
         return null;
     }
 
     @Override
     @Transactional(propagation = Propagation.REQUIRES_NEW)
-    public Authentication merge(Authentication entity) {
+    public Journals merge(Journals entity) {
         return null;
     }
 
     @Override
     @Transactional(propagation = Propagation.REQUIRED)
-    public Authentication remove(Authentication entity) {
+    public Journals remove(Journals entity) {
         return null;
     }
 
     @Override
     @Transactional(propagation = Propagation.NOT_SUPPORTED)
-    public List<Authentication> findAll() {
+    public List<Journals> findAll() {
         return null;
     }
     

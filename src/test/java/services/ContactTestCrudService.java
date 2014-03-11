@@ -4,6 +4,7 @@
  */
 package services;
 
+import com.alex.tp.libraryassignment.app.config.ContactAppConfig;
 import com.alex.tp.libraryassignment.model.Contact;
 import com.alex.tp.libraryassignment.services.crud.ContactCrudservice;
 import org.mockito.Mock;
@@ -17,6 +18,8 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import static org.mockito.Mockito.when;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 /**
  *
  * @author Alex
@@ -25,6 +28,8 @@ public class ContactTestCrudService {
     
     @Mock
     ContactCrudservice crudService;
+    
+    private static ApplicationContext ctx;
     
     @BeforeClass
     public void setUpClass() throws Exception {
@@ -54,13 +59,15 @@ public class ContactTestCrudService {
         // THIS IS THE WRONG WAY TO DO THIS
         // PLEASE FIX FIX FIX
         // LEFT OUT FOR YOU TO FIGURE IT OUT
+//        ApplicationContext ctx = new AnnotationConfigApplicationContext(ContactAppConfig.class);
+//        crudService = (ContactCrudservice)ctx.getBean("contact");
 
         Contact contact = new Contact.ContactBuilder("1").email("apdaniels92@gmail.com").cellphone("0744402606").telephone("0219520501").build();
         Contact newContact = new Contact.ContactBuilder("1").contact(contact).cellphone("0846528391").build();
-        newContact = crudService.merge(contact);
-        when(crudService.merge(contact)).thenReturn(newContact);
+        //newContact = crudService.merge(contact);
+        crudService.merge(contact);
+        //when(crudService.merge(contact)).thenReturn(newContact);
         Mockito.verify(crudService).merge(contact);
-        System.out.println(newContact.getCellphone());
     }
 
     @Test
