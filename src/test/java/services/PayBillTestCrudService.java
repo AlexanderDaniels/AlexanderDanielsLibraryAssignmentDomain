@@ -48,6 +48,7 @@ public class PayBillTestCrudService {
         PayBill returnPayBill = crudService.find(payBill.getId());
         when(crudService.find(payBill.getId())).thenReturn(returnPayBill);
         Mockito.verify(crudService).find(payBill.getId());
+        
 
     }
 
@@ -58,10 +59,12 @@ public class PayBillTestCrudService {
         // LEFT OUT FOR YOU TO FIGURE IT OUT
 
         PayBill payBill = new PayBill.PayBillBuilder("1").billNo("123abc").amount(200.00).build();
-
-        PayBill returnPayBill = crudService.merge(payBill);
-        when(crudService.merge(payBill)).thenReturn(returnPayBill);
-        Mockito.verify(crudService).merge(payBill);
+        PayBill newP = new PayBill.PayBillBuilder("1").payBill(payBill)
+                .billNo("123qwerty")
+                .build();
+        payBill = crudService.merge(newP);
+        when(crudService.merge(newP)).thenReturn(payBill);
+        Mockito.verify(crudService).merge(newP);
 
     }
 

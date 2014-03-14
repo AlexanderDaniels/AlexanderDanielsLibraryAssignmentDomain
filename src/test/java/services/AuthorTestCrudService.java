@@ -58,10 +58,12 @@ public class AuthorTestCrudService {
         // LEFT OUT FOR YOU TO FIGURE IT OUT
 
         Author author = new Author.AuthorBuilder("1").authorName("Alex").authorSurname("Titanium").build();
-
-        Author returnAuthor = crudService.merge(author);
-        when(crudService.merge(author)).thenReturn(returnAuthor);
-        Mockito.verify(crudService).merge(author);
+        Author newA = new Author.AuthorBuilder("1").author(author)
+                .authorSurname("Daniels")
+                .build();
+        author = crudService.merge(newA);
+        when(crudService.merge(newA)).thenReturn(author);
+        Mockito.verify(crudService).merge(newA);
 
     }
 

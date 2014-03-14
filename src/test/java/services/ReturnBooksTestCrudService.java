@@ -58,10 +58,12 @@ public class ReturnBooksTestCrudService {
         // LEFT OUT FOR YOU TO FIGURE IT OUT
 
         ReturnBooks returnBooks = new ReturnBooks.ReturnBooksBuilder("1").bookName("123 Computers").isbnNum("1234567890QWERTY").build();
-
-        ReturnBooks returnReturnBooks = crudService.merge(returnBooks);
-        when(crudService.merge(returnBooks)).thenReturn(returnReturnBooks);
-        Mockito.verify(crudService).merge(returnBooks);
+        ReturnBooks newR = new ReturnBooks.ReturnBooksBuilder("1").returnBook(returnBooks)
+                .bookName("456 Cumputers")
+                .build();
+        returnBooks = crudService.merge(newR);
+        when(crudService.merge(newR)).thenReturn(returnBooks);
+        Mockito.verify(crudService).merge(newR);
 
     }
 

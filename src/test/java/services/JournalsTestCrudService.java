@@ -58,10 +58,12 @@ public class JournalsTestCrudService {
         // LEFT OUT FOR YOU TO FIGURE IT OUT
 
         Journals journals = new Journals.JournalsBuilder("1").journalName("How stuff works").numOfPages(52).build();
-
-        Journals returnJournals = crudService.merge(journals);
-        when(crudService.merge(journals)).thenReturn(returnJournals);
-        Mockito.verify(crudService).merge(journals);
+        Journals newJ = new Journals.JournalsBuilder("1").journals(journals)
+                .journalName("How stuff REALY works")
+                .build();
+        journals = crudService.merge(newJ);
+        when(crudService.merge(newJ)).thenReturn(journals);
+        Mockito.verify(crudService).merge(newJ);
 
     }
 

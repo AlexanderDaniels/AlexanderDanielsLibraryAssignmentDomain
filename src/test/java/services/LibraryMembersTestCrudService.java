@@ -54,10 +54,12 @@ public class LibraryMembersTestCrudService {
         // LEFT OUT FOR YOU TO FIGURE IT OUT
 
         LibraryMembers librarianMembers = new LibraryMembers.LibraryMembersBuilder("1").membershipNum("12345678Alex").build();
-
-        LibraryMembers returnLibraryMembers = crudService.merge(librarianMembers);
-        when(crudService.merge(librarianMembers)).thenReturn(returnLibraryMembers);
-        Mockito.verify(crudService).merge(librarianMembers);
+        LibraryMembers newL = new LibraryMembers.LibraryMembersBuilder("1").librarian(librarianMembers)
+                .membershipNum("1234Alex")
+                .build();
+        librarianMembers = crudService.merge(newL);
+        when(crudService.merge(newL)).thenReturn(librarianMembers);
+        Mockito.verify(crudService).merge(newL);
 
     }
 

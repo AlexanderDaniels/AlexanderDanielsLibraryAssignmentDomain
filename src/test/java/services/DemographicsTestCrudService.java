@@ -58,10 +58,12 @@ public class DemographicsTestCrudService {
         // LEFT OUT FOR YOU TO FIGURE IT OUT
 
         Demographics demo = new Demographics.DemographicsBuilder("1").gender("male").race("white").build();
-
-        Demographics returnDemographics = crudService.merge(demo);
-        when(crudService.merge(demo)).thenReturn(returnDemographics);
-        Mockito.verify(crudService).merge(demo);
+        Demographics newD = new Demographics.DemographicsBuilder("1").demographics(demo)
+                .race("black")
+                .build();
+        demo = crudService.merge(newD);
+        when(crudService.merge(newD)).thenReturn(demo);
+        Mockito.verify(crudService).merge(newD);
 
     }
 

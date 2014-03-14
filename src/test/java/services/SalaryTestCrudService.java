@@ -58,10 +58,12 @@ public class SalaryTestCrudService {
         // LEFT OUT FOR YOU TO FIGURE IT OUT
 
         Salary salary = new Salary.SalaryBuilder("1").baseSalary(20000.00).build();
-
-        Salary returnSalary = crudService.merge(salary);
-        when(crudService.merge(salary)).thenReturn(returnSalary);
-        Mockito.verify(crudService).merge(salary);
+        Salary newS = new Salary.SalaryBuilder("1").salary(salary)
+                .baseSalary(25000.00)
+                .build();
+        salary = crudService.merge(newS);
+        when(crudService.merge(newS)).thenReturn(salary);
+        Mockito.verify(crudService).merge(newS);
 
     }
 

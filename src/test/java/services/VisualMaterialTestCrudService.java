@@ -58,10 +58,13 @@ public class VisualMaterialTestCrudService {
         // LEFT OUT FOR YOU TO FIGURE IT OUT
 
         VisualMaterial visualMaterial = new VisualMaterial.VisualMaterialBuilder("1").nameOfVisualMaterial("How stuff works").typeOfVisualMaterial("DVD").build();
-
-        VisualMaterial returnVisualMaterial = crudService.merge(visualMaterial);
-        when(crudService.merge(visualMaterial)).thenReturn(returnVisualMaterial);
-        Mockito.verify(crudService).merge(visualMaterial);
+        VisualMaterial newV = new VisualMaterial.VisualMaterialBuilder("1").visualMaterial(visualMaterial)
+                .nameOfVisualMaterial("How stuff works")
+                .typeOfVisualMaterial("Blu-ray")
+                .build();
+        visualMaterial = crudService.merge(newV);
+        when(crudService.merge(newV)).thenReturn(visualMaterial);
+        Mockito.verify(crudService).merge(newV);
 
     }
 

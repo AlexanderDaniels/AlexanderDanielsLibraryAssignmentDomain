@@ -58,10 +58,12 @@ public class NamesTestCrudService {
         // LEFT OUT FOR YOU TO FIGURE IT OUT
 
         Names names = new Names.NamesBuilder("1").firstName("Alex").lastName("Daniels").build();
-
-        Names returnNames = crudService.merge(names);
-        when(crudService.merge(names)).thenReturn(returnNames);
-        Mockito.verify(crudService).merge(names);
+        Names newN = new Names.NamesBuilder("1").names(names)
+                .firstName("Alexander")
+                .build();
+        names = crudService.merge(newN);
+        when(crudService.merge(newN)).thenReturn(names);
+        Mockito.verify(crudService).merge(newN);
 
     }
 

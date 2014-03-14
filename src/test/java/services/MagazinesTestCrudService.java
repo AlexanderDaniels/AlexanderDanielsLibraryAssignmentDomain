@@ -58,10 +58,12 @@ public class MagazinesTestCrudService {
         // LEFT OUT FOR YOU TO FIGURE IT OUT
 
         Magazines magazines = new Magazines.MagazinesBuilder("1").magName("Men's Health").numOfPages(101).build();
-
-        Magazines returnMagazines = crudService.merge(magazines);
-        when(crudService.merge(magazines)).thenReturn(returnMagazines);
-        Mockito.verify(crudService).merge(magazines);
+        Magazines newM = new Magazines.MagazinesBuilder("1").magazines(magazines)
+                .numOfPages(201)
+                .build();
+        magazines = crudService.merge(newM);
+        when(crudService.merge(newM)).thenReturn(magazines);
+        Mockito.verify(crudService).merge(newM);
 
     }
 

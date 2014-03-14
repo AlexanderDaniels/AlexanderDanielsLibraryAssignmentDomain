@@ -57,10 +57,12 @@ public class AuthenticationTestCrudService {
         // LEFT OUT FOR YOU TO FIGURE IT OUT
 
         Authentication auth = new Authentication.AuthenticationBuilder("1").username("Alex").password("qwerty").build();
-
-        Authentication returnAuthentication = crudService.merge(auth);
-        when(crudService.merge(auth)).thenReturn(returnAuthentication);
-        Mockito.verify(crudService).merge(auth);
+        Authentication newA = new Authentication.AuthenticationBuilder("1").authentication(auth)
+                .password("I love TP")
+                .build();
+        auth = crudService.merge(newA);
+        when(crudService.merge(newA)).thenReturn(auth);
+        Mockito.verify(crudService).merge(newA);
 
     }
 

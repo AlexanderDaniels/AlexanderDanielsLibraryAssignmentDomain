@@ -15,10 +15,10 @@ public final class Address {
     private String cellphoneNum;
 
     public Address(AddressBuilder builder) {
-        this.id = builder.id;
-        this.email = builder.email;
-        this.telephoneNum = builder.telephoneNum;
-        this.cellphoneNum = builder.cellphoneNum;
+        id = builder.id;
+        email = builder.email;
+        telephoneNum = builder.telephoneNum;
+        cellphoneNum = builder.cellphoneNum;
     }
 
     public String getId() {
@@ -47,18 +47,18 @@ public final class Address {
             this.id = id;
         }
 
-        public AddressBuilder email(String email) {
-            this.email = email;
+        public AddressBuilder email(String value) {
+            email = value;
             return this;
         }
 
-        public AddressBuilder telephoneNum(String telephoneNum) {
-            this.telephoneNum = telephoneNum;
+        public AddressBuilder telephoneNum(String value) {
+            telephoneNum = value;
             return this;
         }
 
-        public AddressBuilder cellphoneNum(String cellphoneNum) {
-            this.cellphoneNum = cellphoneNum;
+        public AddressBuilder cellphoneNum(String value) {
+            cellphoneNum = value;
             return this;
         }
         

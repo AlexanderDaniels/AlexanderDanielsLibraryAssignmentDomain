@@ -58,10 +58,12 @@ public class LendBooksTestCrudService {
         // LEFT OUT FOR YOU TO FIGURE IT OUT
 
         LendBooks lendBooks = new LendBooks.LendBookBuilder("1").bookName("Harry Potter").membershipNum("123Alex").build();
-
-        LendBooks returnLendBooks = crudService.merge(lendBooks);
-        when(crudService.merge(lendBooks)).thenReturn(returnLendBooks);
-        Mockito.verify(crudService).merge(lendBooks);
+        LendBooks newL = new LendBooks.LendBookBuilder("1").lendBooks(lendBooks)
+                .membershipNum("123Alexander")
+                .build();
+        lendBooks = crudService.merge(newL);
+        when(crudService.merge(newL)).thenReturn(lendBooks);
+        Mockito.verify(crudService).merge(newL);
 
     }
 

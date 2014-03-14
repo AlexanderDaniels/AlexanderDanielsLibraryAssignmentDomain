@@ -58,10 +58,12 @@ public class PublisherTestCrudService {
         // LEFT OUT FOR YOU TO FIGURE IT OUT
 
         Publisher publisher = new Publisher.PublisherBuilder("1").publisherName("HottenTot").publisherAddress("12 Church Street").build();
-
-        Publisher returnPublisher = crudService.merge(publisher);
-        when(crudService.merge(publisher)).thenReturn(returnPublisher);
-        Mockito.verify(crudService).merge(publisher);
+        Publisher newP = new Publisher.PublisherBuilder("1").publisher(publisher)
+                .publisherName("HottenTots")
+                .build();
+        publisher = crudService.merge(newP);
+        when(crudService.merge(newP)).thenReturn(publisher);
+        Mockito.verify(crudService).merge(newP);
 
     }
 

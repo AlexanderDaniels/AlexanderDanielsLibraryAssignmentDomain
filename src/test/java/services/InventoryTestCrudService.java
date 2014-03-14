@@ -58,10 +58,13 @@ public class InventoryTestCrudService {
         // LEFT OUT FOR YOU TO FIGURE IT OUT
 
         Inventory inventory = new Inventory.InventoryBuilder("1").bookName("Harry Potter").numBook(10).build();
-
-        Inventory returnInventory = crudService.merge(inventory);
-        when(crudService.merge(inventory)).thenReturn(returnInventory);
-        Mockito.verify(crudService).merge(inventory);
+        Inventory newI = new Inventory.InventoryBuilder("1").inventory(inventory)
+                .numBook(20)
+                .build();
+        inventory = crudService.merge(newI);
+        when(crudService.merge(newI)).thenReturn(inventory);
+        Mockito.verify(crudService).merge(newI);
+        
 
     }
 

@@ -58,11 +58,12 @@ public class BookTestCrudService {
         // LEFT OUT FOR YOU TO FIGURE IT OUT
 
         Book book = new Book.BookBuilder("1").bookName("Harry Potter").isbnNum("80854hnfdfnuwer2342334").build();
-
-        Book returnBook = crudService.merge(book);
-        when(crudService.merge(book)).thenReturn(returnBook);
-        Mockito.verify(crudService).merge(book);
-
+        Book newb = new Book.BookBuilder("1").book(book)
+                .bookName("Amazing Alex")
+                .build();
+        book = crudService.merge(newb);
+        when(crudService.merge(newb)).thenReturn(book);
+        Mockito.verify(crudService).merge(newb);
     }
 
     @Test

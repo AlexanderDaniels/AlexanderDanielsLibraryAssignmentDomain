@@ -53,11 +53,13 @@ public class AddressTestCrudService {
         // LEFT OUT FOR YOU TO FIGURE IT OUT
 
         Address address = new Address.AddressBuilder("1").email("apdaniels92@gmail.com").telephoneNum("021 486 3215").cellphoneNum("061 486 4352").build();
-
-        Address returnAddress = crudService.merge(address);
-        when(crudService.merge(address)).thenReturn(returnAddress);
-        Mockito.verify(crudService).merge(address);
-
+        Address returnAddress = new Address.AddressBuilder("1").address(address)
+                .email("apdaniels@gmail.com")
+                .build();
+        address = crudService.merge(returnAddress);
+        when(crudService.merge(returnAddress)).thenReturn(address);
+        Mockito.verify(crudService).merge(returnAddress);
+        System.out.println(address);
     }
 
     @Test

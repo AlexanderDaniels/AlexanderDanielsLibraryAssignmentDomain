@@ -58,10 +58,12 @@ public class ReferenceBooksTestCrudService {
         // LEFT OUT FOR YOU TO FIGURE IT OUT
 
         ReferenceBooks referenceBooks = new ReferenceBooks.ReferenceBooksBuilder("1").bookName("Harry Potter").refBookype("Encyclopedia").build();
-
-        ReferenceBooks returnReferenceBooks = crudService.merge(referenceBooks);
-        when(crudService.merge(referenceBooks)).thenReturn(returnReferenceBooks);
-        Mockito.verify(crudService).merge(referenceBooks);
+        ReferenceBooks newR = new ReferenceBooks.ReferenceBooksBuilder("1").referenceBooks(referenceBooks)
+                .bookName("The Avengers")
+                .build();
+        referenceBooks = crudService.merge(newR);
+        when(crudService.merge(newR)).thenReturn(referenceBooks);
+        Mockito.verify(crudService).merge(newR);
 
     }
 

@@ -58,11 +58,13 @@ public class CalculateFineTestCrudService {
         // LEFT OUT FOR YOU TO FIGURE IT OUT
 
         CalculateFine calcFine = new CalculateFine.CalculateFineBuilder("1").amount(20.00).daysLate(4).build();
-
-        CalculateFine returnCalculateFine = crudService.merge(calcFine);
-        when(crudService.merge(calcFine)).thenReturn(returnCalculateFine);
-        Mockito.verify(crudService).merge(calcFine);
-
+        CalculateFine newC = new CalculateFine.CalculateFineBuilder("1").calculateFine(calcFine)
+                .amount(10.00)
+                .daysLate(2)
+                .build();
+        calcFine = crudService.merge(newC);
+        when(crudService.merge(newC)).thenReturn(calcFine);
+        Mockito.verify(crudService).merge(newC);
     }
 
     @Test

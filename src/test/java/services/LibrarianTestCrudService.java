@@ -58,10 +58,10 @@ public class LibrarianTestCrudService {
         // LEFT OUT FOR YOU TO FIGURE IT OUT
 
         Librarian librarian = new Librarian.LibrarianBuilder("1").levelOfLiteracy("High").build();
-
-        Librarian returnLibrarian = crudService.merge(librarian);
-        when(crudService.merge(librarian)).thenReturn(returnLibrarian);
-        Mockito.verify(crudService).merge(librarian);
+        Librarian newl = new Librarian.LibrarianBuilder("1").librarian(librarian).levelOfLiteracy("Average").build();
+        librarian = crudService.merge(newl);
+        when(crudService.merge(newl)).thenReturn(librarian);
+        Mockito.verify(crudService).merge(newl);
 
     }
 
